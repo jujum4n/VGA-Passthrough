@@ -9,8 +9,8 @@ if ps -A | grep -q $vmname; then
 else
 
 # use pulseaudio
-export QEMU_AUDIO_DRV=alsa
-export QEMU_PA_SAMPLES=8192
+#export QEMU_AUDIO_DRV=alsa
+#export QEMU_PA_SAMPLES=8192
 #export QEMU_AUDIO_TIMER_PERIOD=99
 #export QEMU_PA_SERVER=/run/user/1000/pulse/native
 
@@ -31,7 +31,7 @@ qemu-system-x86_64 \
   -serial none \
   -parallel none \
   -soundhw ac97 \
-  -usb -usbdevice host:1af3:0001 -usbdevice host:24f0:0140 \
+  -usb -usbdevice host:1af3:0001 -usbdevice host:24f0:0140 -usbdevice host:0d8c:0014 \
   -device vfio-pci,host=2a:00.0,multifunction=on \
   -device vfio-pci,host=2a:00.1 \
   -drive if=pflash,format=raw,readonly,file=/usr/share/OVMF/OVMF_CODE.fd \
