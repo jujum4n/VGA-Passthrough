@@ -23,3 +23,19 @@ Had to remove index=4 from the win10.sh qemu script, kvm has limitiation of max 
 Changed Audio Driver from Pulse to ac97, seems better but some distortion in left ear on windows sounds. Most everything else is smooth, tried sample rate of 128, upped to 8192 and it seemed to help.
 
 Guest Windows 10 x64 Pro
+
+
+After windows 10 updates 1607 aka "Anniversary Update" you need to disable your GameDVR.
+
+I had good FPS in applications before this update got applied, after it got applied. I removed
+my video card driver and installed it again.
+
+Also
+disable GameDVR this way:
+
+    Open Registry Editor (Run > regedit)
+    Go to HKEY_CURRENT_USER\System\GameConfigStore
+    Set the value of DWORD "GameDVR_Enabled" to 0
+    Go to HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\
+    Create key "GameDVR"
+    Create DWORD 32bit called "AllowgameDVR" and set to 0
